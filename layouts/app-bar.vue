@@ -34,25 +34,26 @@ export default {
   data() {
     return {
       drawer: null,
-    }
+    };
   },
   watch: {
     drawer: function (value) {
-      this.$emit('input', value)
+      this.$emit('input', value);
     },
     value: function (value) {
-      this.drawer = value
+      this.drawer = value;
     },
   },
   mounted() {
-    this.drawer = this.value
+    this.drawer = this.value;
   },
   methods: {
     logout() {
-      this.$router.push('/login')
+      this.$auth.logout();
+      this.$router.push('/login');
     },
   },
-}
+};
 </script>
 
 <style>

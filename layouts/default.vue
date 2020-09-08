@@ -68,6 +68,7 @@
 import AppBar from '@/layouts/app-bar.vue';
 import ScrollTop from '@/layouts/scroll-top.vue';
 export default {
+  middleware: ['auth'],
   components: {
     AppBar,
     ScrollTop,

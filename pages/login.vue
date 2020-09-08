@@ -4,7 +4,7 @@
       <v-layout align-center justify-center>
         <v-flex xs12 sm8 md3 lg>
           <v-card class="elevation-6 pa-3 pb-10">
-            <v-form v-model="valid" @submit.prevent="onLogin()" ref="form">
+            <v-form v-model="valid" @submit.prevent="userLogin()" ref="form">
               <v-card-text>
                 <div class="layout column align-center">
                   <img
@@ -25,7 +25,7 @@
                   name="username"
                   label="Username"
                   type="text"
-                  v-model="model.username"
+                  v-model="user.username"
                   :rules="usernameRules"
                   required
                 ></v-text-field>
@@ -35,7 +35,7 @@
                   type="password"
                   name="password"
                   label="Password"
-                  v-model="model.password"
+                  v-model="user.password"
                   counter
                   :rules="passwordRules"
                   required
@@ -68,21 +68,29 @@ export default {
   layout: 'empty',
   data: () => ({
     loading: false,
-    model: {
-      username: '',
-      password: '',
+    user: {
+      username: 'saklism+demo44@gmail.com',
+      password: '12341234',
     },
     valid: false,
     usernameRules: [(v) => !!v || ''],
     passwordRules: [(v) => !!v || ''],
   }),
   methods: {
-    onLogin() {
-      debugger;
-      this.loading = true;
-      setTimeout(() => {
-        this.$router.push('/');
-      }, 2000);
+    async userLogin() {
+      try {
+        this.loading = true;
+        const response = await this.$auth.loginWith('local', {
+          data: { user: { email: this.user.username, password: this.user.password } },
+        });
+        console.log(response);
+        if (response.data.success) {
+          this.$router.push('/');
+        }
+      } catch (err) {
+        console.log(err);
+      }
+      this.loading = false;
     },
   },
   mounted() {
