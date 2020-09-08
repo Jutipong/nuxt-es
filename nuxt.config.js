@@ -60,7 +60,7 @@ export default {
       login: '/login',
       // logout: '/',
       // callback: '/login',
-      home: '/',
+      // home: '/',
     },
     strategies: {
       local: {
@@ -70,10 +70,10 @@ export default {
             method: 'post',
             propertyName: 'user.auth_jwt',
           },
-          logout: {
-            url: 'https://sakko-demo-api.herokuapp.com/api/v1/user/sign_out',
-            method: 'delete',
-          },
+          // logout: {
+          //   url: 'https://sakko-demo-api.herokuapp.com/api/v1/user/sign_out',
+          //   method: 'delete',
+          // },
           user: {
             url: 'https://sakko-demo-api.herokuapp.com/api/v1/user/me',
             method: 'get',
