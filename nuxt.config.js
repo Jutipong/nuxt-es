@@ -1,4 +1,4 @@
-import colors from 'vuetify/es5/util/colors'
+import colors from 'vuetify/es5/util/colors';
 
 export default {
   router: {
@@ -22,11 +22,7 @@ export default {
   head: {
     titleTemplate: '%s - ' + process.env.npm_package_name,
     title: process.env.npm_package_name || '',
-    meta: [
-      { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: process.env.npm_package_description || '' },
-    ],
+    meta: [{ charset: 'utf-8' }, { name: 'viewport', content: 'width=device-width, initial-scale=1' }, { hid: 'description', name: 'description', content: process.env.npm_package_description || '' }],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
   /*
@@ -54,7 +50,44 @@ export default {
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
+    '@nuxtjs/auth',
   ],
+  auth: {
+    // redirect: {
+    //   login: '/login',
+    // },
+    redirect: {
+      login: '/login',
+      // logout: '/',
+      // callback: '/login',
+      home: '/',
+    },
+    strategies: {
+      local: {
+        endpoints: {
+          login: {
+            url: 'https://sakko-demo-api.herokuapp.com/api/v1/user/sign_in',
+            method: 'post',
+            propertyName: 'user.auth_jwt',
+          },
+          logout: {
+            url: 'https://sakko-demo-api.herokuapp.com/api/v1/user/sign_out',
+            method: 'delete',
+          },
+          user: {
+            url: 'https://sakko-demo-api.herokuapp.com/api/v1/user/me',
+            method: 'get',
+            propertyName: 'user',
+          },
+        },
+        //สำรหับส่งออก
+        tokenName: 'auth-token',
+      },
+    },
+  },
+  // router: {
+  //   middleware: ['auth'],
+  // },
   /*
    ** Axios module configuration
    ** See https://axios.nuxtjs.org/options
@@ -86,4 +119,4 @@ export default {
    ** See https://nuxtjs.org/api/configuration-build/
    */
   build: {},
-}
+};
