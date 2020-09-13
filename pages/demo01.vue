@@ -8,33 +8,10 @@
       <v-card-text>
         <v-row>
           <v-col cols="12" lg="6">
-            <!-- <v-menu
-              ref="isStartDate"
-              v-model="isStartDate"
-              :close-on-content-click="false"
-              transition="scale-transition"
-              offset-y
-              max-width="290px"
-              min-width="290px"
-            >
-              <template v-slot:activator="{ on, attrs }">
-                <v-text-field
-                  clearable
-                  readonly
-                  v-model="startDate"
-                  label="StartDate"
-                  prepend-icon="mdi-calendar-weekend-outline"
-                  v-bind="attrs"
-                  v-on="on"
-                ></v-text-field>
-              </template>
-              <v-date-picker locale="th" v-model="startDate" no-title @input="isStartDate=false"></v-date-picker>
-            </v-menu>-->
-            <DatePickerTH v-model="startDate"></DatePickerTH>
+            <DatePickerTH v-model="startDate" :labelInput="'StartDate'"></DatePickerTH>
           </v-col>
-
           <v-col cols="12" lg="6">
-            <v-date-picker v-model="endDate" color="green lighten-1" header-color="primary"></v-date-picker>
+            <DatePickerTH v-model="endDate" :labelInput="'EndDate'"></DatePickerTH>
           </v-col>
         </v-row>
       </v-card-text>
@@ -50,7 +27,7 @@ export default {
     DatePickerTH,
   },
   data: (vm) => ({
-    startDate: null,
+    startDate: '2020-01-20',
     endDate: null,
     date: null, //new Date().toISOString().substr(0, 10),
     dateFormatted: null, //vm.formatDate(new Date().toISOString().substr(0, 10)),

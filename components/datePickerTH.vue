@@ -28,7 +28,7 @@
 <script>
 export default {
   props: {
-    dateInput: {
+    value: {
       type: String,
       default: null,
     },
@@ -45,10 +45,11 @@ export default {
     };
   },
   mounted() {
-    this.dateData = _.cloneDeep(this.dateInput);
+    this.dateData = _.cloneDeep(this.value);
   },
   watch: {
     dateData() {
+      debugger;
       if (this.$moment(this.dateData).isValid()) {
         this.dateShow = this.$moment(this.dateData, 'YYYY-MM-DD').add(543, 'year').format('DD/MM/YYYY');
       } else {
