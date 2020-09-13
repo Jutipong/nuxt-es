@@ -13,8 +13,8 @@
         <v-text-field
           clearable
           readonly
-          v-model="dateData"
-          label="labelInput"
+          v-model="dateShow"
+          :label="labelInput"
           prepend-icon="mdi-calendar-weekend-outline"
           v-bind="attrs"
           v-on="on"
@@ -41,6 +41,7 @@ export default {
     return {
       isShow: false,
       dateData: null,
+      dateShow: null,
     };
   },
   mounted() {
@@ -48,7 +49,11 @@ export default {
   },
   watch: {
     dateData() {
-      debugger;
+      if (this.$moment(this.dateData).isValid()) {
+        this.dateShow = this.$moment(this.dateData, 'YYYY-MM-DD').add(543, 'year').format('DD/MM/YYYY');
+      } else {
+        console.warning(`date value invalid: ${this.dateData}`);
+      }
       this.$emit('input', this.dateData);
     },
   },

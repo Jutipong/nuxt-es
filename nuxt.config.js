@@ -43,7 +43,11 @@ export default {
   /*
    ** Nuxt.js dev-modules
    */
-  buildModules: ['@nuxtjs/vuetify'],
+  buildModules: ['@nuxtjs/vuetify', '@nuxtjs/moment'],
+  // moment: {
+  //   defaultLocale: 'en',
+  //   locales: ['en'],
+  // },
   /*
    ** Nuxt.js modules
    */
