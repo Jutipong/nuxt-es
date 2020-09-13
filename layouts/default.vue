@@ -54,8 +54,8 @@
     <AppBar v-model="drawer"></AppBar>
     <!-- Contect -->
     <v-main>
-      <v-container class="fill-height" fluid>
-        <v-row align="center" justify="center">
+      <v-container fluid>
+        <v-row>
           <nuxt />
           <ScrollTop></ScrollTop>
         </v-row>
@@ -68,6 +68,7 @@
 import AppBar from '@/layouts/app-bar.vue';
 import ScrollTop from '@/layouts/scroll-top.vue';
 export default {
+  middleware: ['auth'],
   components: {
     AppBar,
     ScrollTop,
@@ -82,13 +83,14 @@ export default {
       // { heading: 'Labels' },
       { icon: 'mdi-home', text: 'Welcome', to: '/' },
       { icon: 'mdi-chart-bubble', text: 'Inspire contacted', to: '/inspire' },
-      {
-        icon: 'mdi-home',
-        'icon-alt': 'mdi-chevron-down',
-        text: 'Home',
-        model: false,
-        children: [{ icon: 'mdi-plus', text: 'Create Home', to: '/' }],
-      },
+      { icon: 'mdi-test-tube', text: 'Demo01', to: '/demo01' },
+      // {
+      //   icon: 'mdi-home',
+      //   'icon-alt': 'mdi-chevron-down',
+      //   text: 'Home',
+      //   model: false,
+      //   children: [{ icon: 'mdi-plus', text: 'Create Home', to: '/' }],
+      // },
       // {
       //   icon: 'mdi-chevron-up',
       //   'icon-alt': 'mdi-chevron-down',
