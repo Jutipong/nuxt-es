@@ -8,7 +8,7 @@
       <v-card-text>
         <v-row>
           <v-col cols="12" lg="6">
-            <v-menu
+            <!-- <v-menu
               ref="isStartDate"
               v-model="isStartDate"
               :close-on-content-click="false"
@@ -29,7 +29,8 @@
                 ></v-text-field>
               </template>
               <v-date-picker locale="th" v-model="startDate" no-title @input="isStartDate=false"></v-date-picker>
-            </v-menu>
+            </v-menu>-->
+            <DatePickerTH v-model="startDate"></DatePickerTH>
           </v-col>
 
           <v-col cols="12" lg="6">
@@ -42,7 +43,12 @@
 </template>
 
 <script>
+import DatePickerTH from '@/components/datePickerTH';
+
 export default {
+  components: {
+    DatePickerTH,
+  },
   data: (vm) => ({
     startDate: null,
     endDate: null,
