@@ -83,7 +83,6 @@ export default {
         const response = await this.$auth.loginWith('local', {
           data: { user: { email: this.user.username, password: this.user.password } },
         });
-        console.log(response);
         if (response.data.success) {
           this.$router.push('/');
         }
