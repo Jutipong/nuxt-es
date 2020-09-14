@@ -111,5 +111,9 @@ export default {
       // { icon: 'mdi-keyboard', text: 'Go to the old version' },
     ],
   }),
+  beforeDestroy() {
+    debugger;
+    this.$auth.logout();
+  },
 };
 </script>
