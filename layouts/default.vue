@@ -54,12 +54,12 @@
     <AppBar v-model="drawer"></AppBar>
     <!-- Contect -->
     <v-main>
-      <v-container fluid>
-        <v-row>
-          <nuxt />
-          <ScrollTop></ScrollTop>
-        </v-row>
-      </v-container>
+      <!-- <v-container fluid> -->
+      <!-- <v-row> -->
+      <nuxt />
+      <ScrollTop></ScrollTop>
+      <!-- </v-row> -->
+      <!-- </v-container> -->
     </v-main>
   </v-app>
 </template>
@@ -112,8 +112,7 @@ export default {
     ],
   }),
   beforeDestroy() {
-    debugger;
-    this.$auth.logout();
+    // this.$auth.logout();
   },
 };
 </script>

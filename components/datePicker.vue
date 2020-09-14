@@ -15,7 +15,7 @@
           readonly
           v-model="dateShow"
           :label="label"
-          prepend-icon="mdi-calendar-month-outline"
+          append-icon="mdi-calendar-month-outline"
           v-bind="attrs"
           v-on="on"
         ></v-text-field>
@@ -91,7 +91,7 @@ export default {
     },
   },
   destroyed() {
-    this.$destroy();
+    // this.$destroy();
   },
 };
 </script>

@@ -43,13 +43,13 @@ export default {
   // },
   modules: ['@nuxtjs/axios', '@nuxtjs/auth'],
   auth: {
-    localStorage: false,
-    cookie: {
-      prefix: 'auth.',
-      options: {
-        path: '/login',
-      },
-    },
+    // localStorage: false,
+    // cookie: {
+    //   prefix: 'auth.',
+    //   options: {
+    //     path: '/login',
+    //   },
+    // },
     redirect: {
       login: '/login',
       // logout: '/',
