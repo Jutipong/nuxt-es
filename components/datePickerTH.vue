@@ -20,7 +20,14 @@
           v-on="on"
         ></v-text-field>
       </template>
-      <v-date-picker locale="th" v-model="dateData" no-title @input="isShow=false"></v-date-picker>
+      <v-date-picker
+        locale="en"
+        :min="startDate"
+        :max="endDate"
+        v-model="dateData"
+        no-title
+        @input="isShow=false"
+      ></v-date-picker>
     </v-menu>
   </div>
 </template>
@@ -36,25 +43,38 @@ export default {
       type: String,
       default: null,
     },
+    startDate: {
+      type: String,
+      default: '',
+    },
+    endDate: {
+      type: String,
+      default: '',
+    },
   },
   data() {
     return {
       isShow: false,
       dateData: null,
       dateShow: null,
+      dateMin: '',
+      dateMax: '',
     };
   },
   mounted() {
+    debugger;
     this.dateData = _.cloneDeep(this.value);
+    this.dateMin = _.cloneDeep(this.startDate);
+    this.dateMax = _.cloneDeep(this.endDate);
   },
   watch: {
     dateData() {
-      debugger;
       if (this.$moment(this.dateData).isValid()) {
         this.dateShow = this.$moment(this.dateData, 'YYYY-MM-DD').add(543, 'year').format('DD/MM/YYYY');
       } else {
         console.warning(`date value invalid: ${this.dateData}`);
       }
+      this.dateShow = this.dateData;
       this.$emit('input', this.dateData);
     },
   },
