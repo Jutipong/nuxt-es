@@ -64,17 +64,15 @@ export default {
   mounted() {
     debugger;
     this.dateData = _.cloneDeep(this.value);
-    this.dateMin = _.cloneDeep(this.startDate);
-    this.dateMax = _.cloneDeep(this.endDate);
   },
   watch: {
     dateData() {
+      debugger;
       if (this.$moment(this.dateData).isValid()) {
         this.dateShow = this.$moment(this.dateData, 'YYYY-MM-DD').add(543, 'year').format('DD/MM/YYYY');
       } else {
         console.warning(`date value invalid: ${this.dateData}`);
       }
-      this.dateShow = this.dateData;
       this.$emit('input', this.dateData);
     },
   },
