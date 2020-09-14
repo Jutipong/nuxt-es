@@ -14,14 +14,14 @@
           clearable
           readonly
           v-model="dateShow"
-          :label="labelInput"
-          prepend-icon="mdi-calendar-weekend-outline"
+          :label="label"
+          prepend-icon="mdi-calendar-month-outline"
           v-bind="attrs"
           v-on="on"
         ></v-text-field>
       </template>
       <v-date-picker
-        locale="en"
+        :locale="locale"
         :min="startDate"
         :max="endDate"
         v-model="dateData"
@@ -39,7 +39,11 @@ export default {
       type: String,
       default: null,
     },
-    labelInput: {
+    locale: {
+      type: String,
+      default: 'en',
+    },
+    label: {
       type: String,
       default: null,
     },
@@ -57,23 +61,33 @@ export default {
       isShow: false,
       dateData: null,
       dateShow: null,
-      dateMin: '',
-      dateMax: '',
     };
   },
   mounted() {
-    debugger;
     this.dateData = _.cloneDeep(this.value);
+  },
+  methods: {
+    clearInput() {
+      this.$emit('input', this.dateShow);
+    },
   },
   watch: {
     dateData() {
-      debugger;
       if (this.$moment(this.dateData).isValid()) {
-        this.dateShow = this.$moment(this.dateData, 'YYYY-MM-DD').add(543, 'year').format('DD/MM/YYYY');
+        this.dateShow = this.$moment(this.dateData, 'YYYY-MM-DD')
+          .add(this.locale === 'th' ? 543 : 0, 'year')
+          .format('DD/MM/YYYY');
       } else {
         console.warning(`date value invalid: ${this.dateData}`);
       }
       this.$emit('input', this.dateData);
+      console.log('dateData');
+    },
+    dateShow() {
+      if (!this.dateShow) {
+        console.log('dateShow');
+        this.$emit('input', this.dateShow);
+      }
     },
   },
   destroyed() {
@@ -81,6 +95,3 @@ export default {
   },
 };
 </script>
-
-<style>
-</style>

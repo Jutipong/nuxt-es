@@ -8,10 +8,10 @@
       <v-card-text>
         <v-row>
           <v-col cols="12" lg="6">
-            <DatePickerTH v-model="startDate" :endDate="endDate" :labelInput="'StartDate'"></DatePickerTH>
+            <DatePicker :locale="'th'" :endDate="endDate" :label="'StartDate'" v-model="startDate"></DatePicker>
           </v-col>
           <v-col cols="12" lg="6">
-            <DatePickerTH v-model="endDate" :startDate="startDate" :labelInput="'EndDate'"></DatePickerTH>
+            <DatePicker :locale="'th'" :startDate="startDate" :label="'EndDate'" v-model="endDate"></DatePicker>
           </v-col>
         </v-row>
       </v-card-text>
@@ -20,44 +20,28 @@
 </template>
 
 <script>
-import DatePickerTH from '@/components/datePickerTH';
+import DatePicker from '@/components/datePicker';
 
 export default {
   components: {
-    DatePickerTH,
+    DatePicker,
   },
   data() {
     return {
-      startDateMax: '',
-      endDateMax: '',
       startDate: null,
       endDate: null,
-      date: null, //new Date().toISOString().substr(0, 10),
-      dateFormatted: null, //vm.formatDate(new Date().toISOString().substr(0, 10)),
-      isStartDate: false,
-      isEndtDate: false,
     };
   },
-  // data:(vm) => ({
-  //   startDate: null,
-  //   endDate: null,
-  //   date: null, //new Date().toISOString().substr(0, 10),
-  //   dateFormatted: null, //vm.formatDate(new Date().toISOString().substr(0, 10)),
-  //   isStartDate: false,
-  //   isEndtDate: false,
-  // }),
   computed: {
     computedDateFormatted() {
       return this.formatDate(this.date);
     },
   },
-
   watch: {
     date(val) {
       this.dateFormatted = this.formatDate(this.date);
     },
   },
-
   methods: {
     formatDate(date) {
       if (!date) return null;
@@ -71,6 +55,9 @@ export default {
       const [month, day, year] = date.split('/');
       return `${year}-${month.padStart(2, '0')}-${day.padStart(2, '0')}`;
     },
+  },
+  destroyed() {
+    this.destroyed();
   },
 };
 </script>
