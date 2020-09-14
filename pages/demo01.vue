@@ -36,7 +36,7 @@ export default {
   methods: {},
   watch: {},
   destroyed() {
-    this.destroyed();
+    this.destroy();
   },
 };
 </script>

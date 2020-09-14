@@ -35,31 +35,21 @@ export default {
    */
   plugins: ['@/plugins/base.js'],
   loading: { color: '##42b983' },
-  /*
-   ** Auto import components
-   ** See https://nuxtjs.org/api/configuration-components
-   */
   components: true,
-  /*
-   ** Nuxt.js dev-modules
-   */
   buildModules: ['@nuxtjs/vuetify', '@nuxtjs/moment'],
   // moment: {
   //   defaultLocale: 'en',
   //   locales: ['en'],
   // },
-  /*
-   ** Nuxt.js modules
-   */
-  modules: [
-    // Doc: https://axios.nuxtjs.org/usage
-    '@nuxtjs/axios',
-    '@nuxtjs/auth',
-  ],
+  modules: ['@nuxtjs/axios', '@nuxtjs/auth'],
   auth: {
-    // redirect: {
-    //   login: '/login',
-    // },
+    localStorage: false,
+    cookie: {
+      prefix: 'auth.',
+      options: {
+        path: '/login',
+      },
+    },
     redirect: {
       login: '/login',
       // logout: '/',
@@ -92,15 +82,7 @@ export default {
   // router: {
   //   middleware: ['auth'],
   // },
-  /*
-   ** Axios module configuration
-   ** See https://axios.nuxtjs.org/options
-   */
   axios: {},
-  /*
-   ** vuetify module configuration
-   ** https://github.com/nuxt-community/vuetify-module
-   */
   vuetify: {
     customVariables: ['~/assets/variables.scss'],
     theme: {
@@ -118,9 +100,5 @@ export default {
       },
     },
   },
-  /*
-   ** Build configuration
-   ** See https://nuxtjs.org/api/configuration-build/
-   */
   build: {},
 };
