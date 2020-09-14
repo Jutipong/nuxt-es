@@ -7,12 +7,13 @@
       <v-divider></v-divider>
       <v-card-text>
         <v-row>
-          <v-col cols="12" lg="6">
+          <v-col cols="12" lg="4">
             <DatePicker :locale="'th'" :endDate="endDate" :label="'StartDate'" v-model="startDate"></DatePicker>
           </v-col>
-          <v-col cols="12" lg="6">
+          <v-col cols="12" lg="4">
             <DatePicker :locale="'th'" :startDate="startDate" :label="'EndDate'" v-model="endDate"></DatePicker>
           </v-col>
+          <v-col></v-col>
         </v-row>
       </v-card-text>
     </v-card>
