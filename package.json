@@ -13,7 +13,8 @@
     "@nuxtjs/axios": "^5.12.0",
     "lodash": "^4.17.20",
     "nuxt": "^2.14.5",
-    "vee-validate": "^3.3.11"
+    "vee-validate": "^3.3.11",
+    "vue-currency-input": "^1.22.3"
   },
   "devDependencies": {
     "@nuxtjs/moment": "^1.6.1",
