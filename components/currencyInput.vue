@@ -12,7 +12,7 @@ export default {
     },
     options: {
       type: Object,
-      default: () => this.optionsData,
+      default: () => null,
     },
   },
   data() {
@@ -29,6 +29,12 @@ export default {
         },
       },
     };
+  },
+  mounted() {
+    debugger
+    if (this.options) {
+      this.optionsData = _.cloneDeep(this.options);
+    }
   },
   watch: {
     value(value) {

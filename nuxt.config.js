@@ -15,7 +15,7 @@ export default {
    ** Nuxt target
    ** See https://nuxtjs.org/api/configuration-target
    */
-  target: 'static',
+  target: 'server',
   /*
    ** Headers of the page
    ** See https://nuxtjs.org/api/configuration-head
@@ -48,19 +48,20 @@ export default {
   // },
   modules: ['@nuxtjs/axios', '@nuxtjs/auth'],
   auth: {
-    // localStorage: false,
+    // localStorage: true,
+    // cookie: false,
     // cookie: {
     //   prefix: 'auth.',
     //   options: {
     //     path: '/login',
     //   },
     // },
-    redirect: {
-      login: '/login',
-      // logout: '/',
-      // callback: '/login',
-      // home: '/',
-    },
+    // redirect: {
+    //   login: '/login',
+    //   // logout: '/',
+    //   // callback: '/',
+    //   // home: '/',
+    // },
     strategies: {
       local: {
         endpoints: {
@@ -73,13 +74,17 @@ export default {
           //   url: 'https://sakko-demo-api.herokuapp.com/api/v1/user/sign_out',
           //   method: 'delete',
           // },
-          user: {
-            url: 'https://sakko-demo-api.herokuapp.com/api/v1/user/me',
-            method: 'get',
-            propertyName: 'user',
-          },
+          // user: {
+          //   url: 'https://sakko-demo-api.herokuapp.com/api/v1/user/me',
+          //   method: 'get',
+          //   propertyName: 'user',
+          // },
+          user: false,
         },
-        //สำรหับส่งออก
+        // tokenRequired: true,
+        // tokenType: 'bearer',
+        // globalToken: true,
+        // autoFetchUser: false,
         tokenName: 'auth-token',
       },
     },
