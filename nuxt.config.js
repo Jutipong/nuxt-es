@@ -9,12 +9,13 @@ export default {
    ** Nuxt rendering mode
    ** See https://nuxtjs.org/api/configuration-mode
    */
+  ssr: false,
   mode: 'spa',
   /*
    ** Nuxt target
    ** See https://nuxtjs.org/api/configuration-target
    */
-  target: 'server',
+  target: 'static',
   /*
    ** Headers of the page
    ** See https://nuxtjs.org/api/configuration-head
@@ -43,13 +44,13 @@ export default {
   // },
   modules: ['@nuxtjs/axios', '@nuxtjs/auth'],
   auth: {
-    localStorage: false,
-    cookie: {
-      prefix: 'auth.',
-      options: {
-        path: '/login',
-      },
-    },
+    // localStorage: false,
+    // cookie: {
+    //   prefix: 'auth.',
+    //   options: {
+    //     path: '/login',
+    //   },
+    // },
     redirect: {
       login: '/login',
       // logout: '/',
@@ -89,7 +90,7 @@ export default {
       dark: false,
       themes: {
         dark: {
-          primary: colors.blue.darken2,
+          primary: colors.blue.darken4,
           accent: colors.grey.darken3,
           secondary: colors.amber.darken3,
           info: colors.teal.lighten1,
