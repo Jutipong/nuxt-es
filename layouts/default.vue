@@ -45,7 +45,7 @@
       <!-- <v-container fluid> -->
       <!-- <v-row> -->
       <nuxt />
-      <ScrollTop></ScrollTop>
+      <!-- <ScrollTop></ScrollTop> -->
       <!-- </v-row> -->
       <!-- </v-container> -->
     </v-main>

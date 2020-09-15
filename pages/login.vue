@@ -7,12 +7,7 @@
             <v-form v-model="valid" @submit.prevent="userLogin()" ref="form">
               <v-card-text>
                 <div class="layout column align-center">
-                  <img
-                    class="mt-5 mb-5"
-                    src="../static/logo.svg"
-                    alt="Vue Material Admin"
-                    width="70%"
-                  />
+                  <img class="mt-5 mb-5" src="../static/logo.svg" alt="Vue Material Admin" width="70%" />
                   <h2 class="flex my-4 primary--text">
                     (◍•ᴗ•◍)
                     <span class="red--text">❤</span>
@@ -43,14 +38,7 @@
               </v-card-text>
               <v-card-actions>
                 <v-spacer></v-spacer>
-                <v-btn
-                  type="submit"
-                  tile
-                  block
-                  color="primary"
-                  :loading="loading"
-                  :disabled="!valid"
-                >
+                <v-btn type="submit" tile block color="primary" :loading="loading" :disabled="!valid">
                   Login
                   <v-icon>mdi-login</v-icon>
                 </v-btn>
