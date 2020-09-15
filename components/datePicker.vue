@@ -1,33 +1,10 @@
 <template>
   <div>
-    <v-menu
-      ref="isShow"
-      v-model="isShow"
-      :close-on-content-click="false"
-      transition="scale-transition"
-      offset-y
-      max-width="290px"
-      min-width="290px"
-    >
+    <v-menu ref="isShow" v-model="isShow" :close-on-content-click="false" transition="scale-transition" offset-y max-width="290px" min-width="290px">
       <template v-slot:activator="{ on, attrs }">
-        <v-text-field
-          clearable
-          readonly
-          v-model="dateShow"
-          :label="label"
-          append-icon="mdi-calendar-month-outline"
-          v-bind="attrs"
-          v-on="on"
-        ></v-text-field>
+        <v-text-field clearable readonly v-model="dateShow" :label="label" append-icon="mdi-calendar-month-outline" v-bind="attrs" v-on="on"></v-text-field>
       </template>
-      <v-date-picker
-        :locale="locale"
-        :min="startDate"
-        :max="endDate"
-        v-model="dateData"
-        no-title
-        @input="isShow=false"
-      ></v-date-picker>
+      <v-date-picker :locale="locale" :min="startDate" :max="endDate" v-model="dateData" no-title @input="isShow = false"></v-date-picker>
     </v-menu>
   </div>
 </template>
