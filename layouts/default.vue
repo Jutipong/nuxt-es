@@ -105,7 +105,7 @@ export default {
 };
 </script>
 <style>
-.wdf {
+.btn-df {
   min-width: 125px !important;
 }
 .v-card__text {
