@@ -66,9 +66,9 @@ export default {
         // maxAge: 60,
       },
     },
-    // redirect: {
-    //   login: '/login',
-    // },
+    redirect: {
+      login: '/login',
+    },
     strategies: {
       local: {
         endpoints: {

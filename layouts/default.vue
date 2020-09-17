@@ -99,9 +99,12 @@ export default {
       // { icon: 'mdi-keyboard', text: 'Go to the old version' },
     ],
   }),
-  beforeDestroy() {
-    this.$auth.logout();
-  },
+  // beforeDestroy() {
+  //   this.$auth.logout();
+  // },
+  // destroyed() {
+  //   this.$auth.logout();
+  // },
   // created() {
   //   document.addEventListener('beforeunload', this.handler);
   // },

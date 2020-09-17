@@ -71,11 +71,13 @@ export default {
         const response = await this.$auth.loginWith('local', {
           data: { user: { email: this.user.username, password: this.user.password } },
         });
+
         if (response.data.success) {
+          this.$auth.setUser(response.data.user);
           this.$router.push('/');
         }
-      } catch (err) {
-        console.log(err);
+      } catch {
+        // console.log(err);
       }
       this.loading = false;
     },
