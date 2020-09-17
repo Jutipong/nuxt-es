@@ -47,21 +47,28 @@ export default {
   //   locales: ['en'],
   // },
   modules: ['@nuxtjs/axios', '@nuxtjs/auth'],
+  // axios: {
+  //   baseURL: 'http://localhost:8000'
+  // },
   auth: {
-    // localStorage: true,
-    // cookie: false,
+    // localStorage: false,
+    // cookie: true,
     // cookie: {
     //   prefix: 'auth.',
     //   options: {
     //     path: '/login',
     //   },
     // },
-    redirect: {
-      login: '/login',
-      // logout: '/',
-      // callback: '/',
-      // home: '/',
+    localStorage: false,
+    cookie: {
+      options: {
+        // expires: 1,
+        // maxAge: 60,
+      },
     },
+    // redirect: {
+    //   login: '/login',
+    // },
     strategies: {
       local: {
         endpoints: {

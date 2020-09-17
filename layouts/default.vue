@@ -100,8 +100,17 @@ export default {
     ],
   }),
   beforeDestroy() {
-    // this.$auth.logout();
+    this.$auth.logout();
   },
+  // created() {
+  //   document.addEventListener('beforeunload', this.handler);
+  // },
+  // methods: {
+  //   handler(event) {
+  //     debugger;
+  //     this.$auth.logout();
+  //   },
+  // },
 };
 </script>
 <style>
