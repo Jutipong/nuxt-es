@@ -42,24 +42,24 @@
     <AppBar v-model="drawer"></AppBar>
     <!-- Contect -->
     <v-main>
-      <!-- <v-container fluid> -->
-      <!-- <v-row> -->
-      <nuxt />
-      <!-- <ScrollTop></ScrollTop> -->
-      <!-- </v-row> -->
-      <!-- </v-container> -->
+      <v-container fluid>
+        <!-- <v-row> -->
+        <nuxt />
+        <!-- <ScrollTop></ScrollTop> -->
+        <!-- </v-row> -->
+      </v-container>
     </v-main>
   </v-app>
 </template>
 
 <script>
 import AppBar from '@/layouts/app-bar.vue';
-import ScrollTop from '@/layouts/scroll-top.vue';
+// import ScrollTop from '@/layouts/scroll-top.vue';
 export default {
-  middleware: ['auth'],
+  // middleware: ['auth'],
   components: {
     AppBar,
-    ScrollTop,
+    // ScrollTop,
   },
   props: {
     source: String,

@@ -56,12 +56,12 @@ export default {
     //     path: '/login',
     //   },
     // },
-    // redirect: {
-    //   login: '/login',
-    //   // logout: '/',
-    //   // callback: '/',
-    //   // home: '/',
-    // },
+    redirect: {
+      login: '/login',
+      // logout: '/',
+      // callback: '/',
+      // home: '/',
+    },
     strategies: {
       local: {
         endpoints: {
@@ -89,9 +89,9 @@ export default {
       },
     },
   },
-  // router: {
-  //   middleware: ['auth'],
-  // },
+  router: {
+    middleware: ['auth'],
+  },
   axios: {},
   vuetify: {
     customVariables: ['~/assets/variables.scss'],

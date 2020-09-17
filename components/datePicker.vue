@@ -58,7 +58,6 @@ export default {
         console.warning(`date value invalid: ${this.dateData}`);
       }
       this.$emit('input', this.dateData);
-      console.log('dateData');
     },
     dateShow() {
       if (!this.dateShow) {
