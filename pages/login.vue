@@ -68,17 +68,19 @@ export default {
     async userLogin() {
       try {
         this.loading = true;
-        const response = await this.$auth.loginWith('local', {
-          data: { user: { email: this.user.username, password: this.user.password } },
-        });
-
-        if (response.data.success) {
-          this.$auth.setUser(response.data.user);
-          this.$router.push('/');
-        }
-      } catch {
-        // console.log(err);
-      }
+        const response = await this.$auth
+          .loginWith('local', {
+            data: { user: { email: this.user.username, password: this.user.password } },
+          })
+          .then((res) => {
+            if (res.data.success) {
+              sessionStorage.setItem('.init-auth', Date.now());
+              this.$auth.setUser(res.data.user);
+              // this.redirec('/');
+              // this.$router.push('/');
+            }
+          });
+      } catch {}
       this.loading = false;
     },
   },
