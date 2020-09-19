@@ -76,6 +76,7 @@ export default {
             if (res.data.success) {
               sessionStorage.setItem('.init-auth', Date.now());
               this.$auth.setUser(res.data.user);
+              this.$router.push('/').catch(() => {});
               // this.redirec('/');
               // this.$router.push('/');
             }
