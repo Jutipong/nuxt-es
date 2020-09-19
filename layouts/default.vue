@@ -11,25 +11,13 @@
               <!-- <a href="#!" class="body-2 black--text">EDIT</a> -->
             </v-col>
           </v-row>
-          <v-list-group
-            v-else-if="item.children"
-            :key="item.text"
-            v-model="item.model"
-            :prepend-icon="item.model ? item.icon : item['icon-alt']"
-            append-icon
-          >
+          <v-list-group v-else-if="item.children" :key="item.text" v-model="item.model" :prepend-icon="item.model ? item.icon : item['icon-alt']" append-icon>
             <template v-slot:activator>
               <v-list-item-content>
                 <v-list-item-title>{{ item.text }}</v-list-item-title>
               </v-list-item-content>
             </template>
-            <v-list-item
-              v-for="(child, i) in item.children"
-              :key="i"
-              :to="child.to"
-              link
-              color="primary"
-            >
+            <v-list-item v-for="(child, i) in item.children" :key="i" :to="child.to" link color="primary">
               <v-list-item-action v-if="child.icon">
                 <v-icon small>{{ child.icon }}</v-icon>
               </v-list-item-action>
@@ -55,10 +43,10 @@
     <!-- Contect -->
     <v-main>
       <v-container fluid>
-        <v-row>
-          <nuxt />
-          <ScrollTop></ScrollTop>
-        </v-row>
+        <!-- <v-row> -->
+        <nuxt />
+        <ScrollTop></ScrollTop>
+        <!-- </v-row> -->
       </v-container>
     </v-main>
   </v-app>
@@ -68,7 +56,7 @@
 import AppBar from '@/layouts/app-bar.vue';
 import ScrollTop from '@/layouts/scroll-top.vue';
 export default {
-  middleware: ['auth'],
+  middleware: ['init-login'],
   components: {
     AppBar,
     ScrollTop,
@@ -111,9 +99,29 @@ export default {
       // { icon: 'mdi-keyboard', text: 'Go to the old version' },
     ],
   }),
-  beforeDestroy() {
-    debugger;
-    this.$auth.logout();
-  },
+  // beforeDestroy() {
+  //   this.$auth.logout();
+  // },
+  // destroyed() {
+  //   this.$auth.logout();
+  // },
+  // created() {
+  //   document.addEventListener('beforeunload', this.handler);
+  // },
+  // methods: {
+  //   handler(event) {
+  //     debugger;
+  //     this.$auth.logout();
+  //   },
+  // },
 };
 </script>
+<style>
+.btn-df {
+  min-width: 125px !important;
+}
+.v-card__text {
+  padding-right: 30px;
+  padding-left: 30px;
+}
+</style>
