@@ -45,7 +45,7 @@
       <v-container fluid>
         <!-- <v-row> -->
         <nuxt />
-        <!-- <ScrollTop></ScrollTop> -->
+        <ScrollTop></ScrollTop>
         <!-- </v-row> -->
       </v-container>
     </v-main>
@@ -54,12 +54,12 @@
 
 <script>
 import AppBar from '@/layouts/app-bar.vue';
-// import ScrollTop from '@/layouts/scroll-top.vue';
+import ScrollTop from '@/layouts/scroll-top.vue';
 export default {
   middleware: ['init-login'],
   components: {
     AppBar,
-    // ScrollTop,
+    ScrollTop,
   },
   props: {
     source: String,

@@ -1,25 +1,21 @@
 import colors from 'vuetify/es5/util/colors';
 
 export default {
-  router: {
-    mode: 'hash',
-    base: '/',
-  },
+  // router: {
+  //   mode: 'hash',
+  //   base: '/',
+  // },
   /*
    ** Nuxt rendering mode
    ** See https://nuxtjs.org/api/configuration-mode
    */
-  ssr: false,
+  // ssr: false,
   mode: 'spa',
   /*
    ** Nuxt target
    ** See https://nuxtjs.org/api/configuration-target
    */
-  target: 'server',
-  /*
-   ** Headers of the page
-   ** See https://nuxtjs.org/api/configuration-head
-   */
+  target: 'static',
   head: {
     titleTemplate: '%s - ' + process.env.npm_package_name,
     title: process.env.npm_package_name || '',
@@ -30,46 +26,39 @@ export default {
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
-  /*
-   ** Global CSS
-   */
   css: [],
-  /*
-   ** Plugins to load before mounting the App
-   ** https://nuxtjs.org/guide/plugins
-   */
   plugins: ['@/plugins/main.js'],
-  loading: { color: '##42b983' },
+  loading: {
+    color: '#00c853',
+    height: '3px',
+    throttle: 200,
+    duration: 500,
+    // continuous: true,
+  },
+  loadingIndicator: {
+    name: 'circle',
+    color: '#00c853',
+    background: 'white',
+  },
   components: true,
   buildModules: ['@nuxtjs/vuetify', '@nuxtjs/moment'],
-  // moment: {
-  //   defaultLocale: 'en',
-  //   locales: ['en'],
-  // },
   modules: ['@nuxtjs/axios', '@nuxtjs/auth'],
   // axios: {
   //   baseURL: 'http://localhost:8000'
   // },
   auth: {
-    // localStorage: false,
-    // cookie: true,
-    // cookie: {
-    //   prefix: 'auth.',
-    //   options: {
-    //     path: '/login',
-    //   },
-    // },
     localStorage: false,
     cookie: {
       options: {
-        // expires: 1,
-        // maxAge: 60,
+        prefix: 'auth.',
+        options: {
+          path: '/login',
+        },
       },
     },
     redirect: {
       login: '/login',
       logout: '/login',
-      callback: '/login',
     },
     strategies: {
       local: {

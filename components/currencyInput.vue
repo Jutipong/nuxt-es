@@ -1,5 +1,5 @@
 <template>
-  <VTextField ref="input" v-currency="options" :value="formattedValue" @input="onInput" show-current="false" clearable autocomplete="off" />
+  <VTextField ref="input" v-currency="optionsData" :value="formattedValue" @input="onInput" show-current="false" clearable autocomplete="off" />
 </template>
 
 <script>
